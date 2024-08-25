@@ -7,6 +7,7 @@
         <InvariantGlobalization>true</InvariantGlobalization>
         <IncludeHttpRuleProtos>true</IncludeHttpRuleProtos>
         <PublishAot>true</PublishAot>
+        <AssemblyName>TinyURL.Host</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>

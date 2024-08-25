@@ -1,6 +1,6 @@
 using Grpc.Core;
 
-namespace TinyURL.Services;
+namespace TinyURL.Host.Services;
 
 public class TinyUrlGrpcService(ITinyUrlService tinyUrlService, ILogger<TinyUrlGrpcService> logger)
     : TinyURLService.TinyURLServiceBase
@@ -104,7 +104,7 @@ public class TinyUrlGrpcService(ITinyUrlService tinyUrlService, ILogger<TinyUrlG
         {
             var urlPairs = request.Filter == null 
                 ? await tinyUrlService.GetAllUrls()
-                : await tinyUrlService.GetAllUrls(request.Filter.Take, request.Filter.Skip);
+                : await tinyUrlService.GetAllUrls(request.Filter.Take);
             var response = new GetAllURLsResponse();
             response.Urls.AddRange(urlPairs.Select(url => new URLPair
             {

@@ -103,5 +103,4 @@ message URLPair {
 
 message URLsFilter {
   optional int32 take = 1;
-  optional int32 skip = 2;
 }

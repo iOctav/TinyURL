@@ -1,6 +1,6 @@
 using Microsoft.OpenApi.Models;
-using TinyURL.Repositories;
-using TinyURL.Services;
+using TinyURL.Host.Repositories;
+using TinyURL.Host.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

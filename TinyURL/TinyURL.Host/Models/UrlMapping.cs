@@ -1,4 +1,4 @@
-namespace TinyURL.Models;
+namespace TinyURL.Host.Models;
 
 public class UrlMapping(string shortUrl, string longUrl)
 {

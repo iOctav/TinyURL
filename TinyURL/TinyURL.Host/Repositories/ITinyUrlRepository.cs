@@ -1,6 +1,6 @@
-using TinyURL.Models;
+using TinyURL.Host.Models;
 
-namespace TinyURL.Repositories;
+namespace TinyURL.Host.Repositories;
 
 public interface ITinyUrlRepository
 {
@@ -9,5 +9,5 @@ public interface ITinyUrlRepository
     Task<UrlMapping?> GetUrlMapping(string shortUrl);
     Task<bool> ContainsShortUrl(string shortUrl);
     Task<bool> TryGetUrlMapping(string shortUrl, out UrlMapping? mapping);
-    Task<IEnumerable<UrlMapping>> GetAllUrlMappings(int take, int skip);
+    Task<IEnumerable<UrlMapping>> GetAllUrlMappings(int take);
 }

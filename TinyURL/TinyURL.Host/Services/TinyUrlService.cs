@@ -1,7 +1,7 @@
-using TinyURL.Models;
-using TinyURL.Repositories;
+using TinyURL.Host.Models;
+using TinyURL.Host.Repositories;
 
-namespace TinyURL.Services;
+namespace TinyURL.Host.Services;
 
 public class TinyUrlService(ITinyUrlRepository urlRepository, ILogger<TinyUrlService> logger) : ITinyUrlService
 {
@@ -88,11 +88,11 @@ public class TinyUrlService(ITinyUrlRepository urlRepository, ILogger<TinyUrlSer
         return clickCount;
     }
     
-    public async Task<IEnumerable<URLPair>> GetAllUrls(int take = 10, int skip = 0)
+    public async Task<IEnumerable<URLPair>> GetAllUrls(int take = 10)
     {
         logger.LogInformation("Retrieving all URL mappings.");
 
-        var urlMappings = await urlRepository.GetAllUrlMappings(take, skip);
+        var urlMappings = await urlRepository.GetAllUrlMappings(take);
         var urlPairs = urlMappings.Select(mapping => new URLPair
         {
             ShortUrl = mapping.ShortUrl,

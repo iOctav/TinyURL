@@ -1,7 +1,7 @@
 using System.Collections.Concurrent;
-using TinyURL.Models;
+using TinyURL.Host.Models;
 
-namespace TinyURL.Repositories;
+namespace TinyURL.Host.Repositories;
 
 public class TinyUrlRepository : ITinyUrlRepository
 {
@@ -41,9 +41,9 @@ public class TinyUrlRepository : ITinyUrlRepository
         return Task.FromResult(mapping);
     }
 
-    public Task<IEnumerable<UrlMapping>> GetAllUrlMappings(int take, int skip) // Implementation of GetAllUrlMappings
+    public Task<IEnumerable<UrlMapping>> GetAllUrlMappings(int take)
     {
-        var allMappings = _urlStore.Values.SkipLast(skip).TakeLast(take).AsEnumerable();
+        var allMappings = _urlStore.Values.TakeLast(take).AsEnumerable();
         return Task.FromResult(allMappings);
     }
 }
