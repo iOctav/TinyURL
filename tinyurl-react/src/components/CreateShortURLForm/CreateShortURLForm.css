@@ -1,0 +1,51 @@
+.create-short-url-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.create-short-url-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.create-short-url-form .form-group {
+    margin-bottom: 15px;
+}
+
+.create-short-url-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.create-short-url-form input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.create-short-url-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.create-short-url-form button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+.create-short-url-form .error {
+    margin-top: 10px;
+    color: red;
+    text-align: center;
+}

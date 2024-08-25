@@ -1,0 +1,58 @@
+.url-stats {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.url-stats h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.url-stats .form-group {
+    margin-bottom: 15px;
+}
+
+.url-stats label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.url-stats input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.url-stats button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.url-stats button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+.url-stats .error {
+    margin-top: 10px;
+    color: red;
+    text-align: center;
+}
+
+.url-stats .stats-result {
+    margin-top: 20px;
+    background-color: #e9ecef;
+    padding: 15px;
+    border-radius: 5px;
+}

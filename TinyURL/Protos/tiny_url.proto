@@ -1,0 +1,107 @@
+syntax = "proto3";
+
+option csharp_namespace = "TinyURL";
+import "google/api/annotations.proto";
+
+package tinyurl;
+
+// The TinyURL service definition
+service TinyURLService {
+  // Create a new short URL
+  rpc CreateShortURL(CreateShortURLRequest) returns (CreateShortURLResponse) {
+    option (google.api.http) = {
+      post: "/v1/tiny-url/create",
+      body: "*"
+    };
+  }
+
+  // Delete a short URL
+  rpc DeleteShortURL(DeleteShortURLRequest) returns (DeleteShortURLResponse) {
+    option (google.api.http) = {
+      delete: "/v1/tiny-url/delete/{short_url}"
+    };
+  }
+
+  // Get the long URL associated with a short URL
+  rpc GetLongURL(GetLongURLRequest) returns (GetLongURLResponse) {
+    option (google.api.http) = {
+      get: "/v1/tiny-url/{short_url}"
+    };
+  }
+
+  // Get statistics on the number of times a short URL has been accessed
+  rpc GetURLStats(GetURLStatsRequest) returns (GetURLStatsResponse) {
+    option (google.api.http) = {
+      get: "/v1/tiny-url/{short_url}/stats"
+    };
+  }
+
+  // Get all short URLs along with their associated long URLs
+  rpc GetAllURLs(GetAllURLsRequest) returns (GetAllURLsResponse) {
+    option (google.api.http) = {
+      get: "/v1/tiny-url/all"
+    };
+  }
+}
+
+// Request message for creating a short URL
+message CreateShortURLRequest {
+  string long_url = 1;
+  optional string custom_short_url = 2;
+}
+
+// Response message for creating a short URL
+message CreateShortURLResponse {
+  string short_url = 1;
+}
+
+// Request message for deleting a short URL
+message DeleteShortURLRequest {
+  string short_url = 1;
+}
+
+// Response message for deleting a short URL
+message DeleteShortURLResponse {
+  bool success = 1;
+}
+
+// Request message for getting the long URL associated with a short URL
+message GetLongURLRequest {
+  string short_url = 1;
+}
+
+// Response message for getting the long URL
+message GetLongURLResponse {
+  string long_url = 1;
+}
+
+// Request message for getting URL stats
+message GetURLStatsRequest {
+  string short_url = 1;
+}
+
+// Response message for getting URL stats
+message GetURLStatsResponse {
+  int64 click_count = 1;
+}
+
+// Request message for getting all URLs
+message GetAllURLsRequest {
+  optional URLsFilter filter = 1;
+}
+
+// Response message for getting all URLs
+message GetAllURLsResponse {
+  repeated URLPair urls = 1;
+}
+
+// A pair of short URL and its associated long URL
+message URLPair {
+  string short_url = 1;
+  string long_url = 2;
+}
+
+message URLsFilter {
+  optional int32 take = 1;
+  optional int32 skip = 2;
+}

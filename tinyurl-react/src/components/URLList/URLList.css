@@ -1,0 +1,38 @@
+.url-list {
+    margin: 30px auto;
+    max-width: 800px;
+}
+
+.url-list h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.url-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.url-list th,
+.url-list td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.url-list .long-url {
+    word-break: break-all;
+}
+
+.url-list .delete-button {
+    padding: 5px 10px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.url-list .delete-button:hover {
+    background-color: #c82333;
+}
