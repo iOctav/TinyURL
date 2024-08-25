@@ -23,7 +23,7 @@ const HomePage = () => {
 
     useEffect(() => {
         fetchUrls();
-    }, [fetchUrls]);
+    }, []);
 
     return (
         <div className="home-page">
